@@ -40,7 +40,19 @@ public class TeamController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Team>>> Index()
     {
-        var user = await _teamRepository.FindAll();
-        return Ok(user);
+        var team = await _teamRepository.FindAll();
+        return Ok(team);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<Team>> Update(int id, [FromBody] Team team)
+    {
+        var teamId = await _teamRepository.Details(id);
+        if (teamId == null)
+        {
+            return NotFound($"{{ \"message\": \"Time não encontrado\" }}");
+        }
+        var teamUpdate = await _teamRepository.UpdateTeam(id, team);
+        return Ok(teamUpdate);
     }
 }

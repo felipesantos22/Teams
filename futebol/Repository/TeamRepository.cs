@@ -31,4 +31,12 @@ public class TeamRepository
         var teams = await _dataContext.team.ToListAsync();
         return teams;
     }
+
+    public async Task<Team> UpdateTeam(int id, Team team)
+    {
+        var existingTeam = await _dataContext.team.FirstOrDefaultAsync(t => t.Id == id);
+        existingTeam!.TeamName = team.TeamName;
+        await _dataContext.SaveChangesAsync();
+        return existingTeam;
+    }
 }
