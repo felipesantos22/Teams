@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "lHJJwV8z90fxsk8nJF3W36sKPpq2ICoHnKgLAOe8NIu/AO+FESZj7NKn1LVyKBf5xt2HzVxGUTcy/NgX9mJ/Hg==",
+  "dgSpecHash": "5+CQ9U4tMcfarOCwR3dUdzRzFwiB5vwQaCHaqLlbGxd7pXK1RjHYQHCDTgTsMJ4LnyUB21cEtlVVb4yZaglKUA==",
   "success": true,
   "projectFilePath": "/home/felipe/RiderProjects/futebol/futebol/futebol.csproj",
   "expectedPackageFiles": [
     "/home/felipe/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/felipe/.nuget/packages/microsoft.aspnetcore.openapi/7.0.12/microsoft.aspnetcore.openapi.7.0.12.nupkg.sha512",
-    "/home/felipe/.nuget/packages/microsoft.entityframeworkcore/7.0.12/microsoft.entityframeworkcore.7.0.12.nupkg.sha512",
-    "/home/felipe/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.12/microsoft.entityframeworkcore.abstractions.7.0.12.nupkg.sha512",
-    "/home/felipe/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.12/microsoft.entityframeworkcore.analyzers.7.0.12.nupkg.sha512",
+    "/home/felipe/.nuget/packages/microsoft.entityframeworkcore/7.0.13/microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
+    "/home/felipe/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.13/microsoft.entityframeworkcore.abstractions.7.0.13.nupkg.sha512",
+    "/home/felipe/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.13/microsoft.entityframeworkcore.analyzers.7.0.13.nupkg.sha512",
     "/home/felipe/.nuget/packages/microsoft.entityframeworkcore.design/7.0.12/microsoft.entityframeworkcore.design.7.0.12.nupkg.sha512",
     "/home/felipe/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.12/microsoft.entityframeworkcore.relational.7.0.12.nupkg.sha512",
     "/home/felipe/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

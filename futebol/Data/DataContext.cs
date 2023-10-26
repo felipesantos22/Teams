@@ -18,5 +18,6 @@ public class DataContext : DbContext
         options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
     }
 
-    public DbSet<Team> Teams { get; set; }
+    public DbSet<Team> team { get; set; }
+    public DbSet<User> user { get; set; }
 }
