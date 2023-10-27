@@ -16,9 +16,7 @@ public class TeamController : ControllerBase
         this._teamRepository = teamRepository;
     }
 
-    
-    
-    
+
     [HttpPost]
     public async Task<ActionResult<Team>> Create([FromBody] Team team)
     {
@@ -26,8 +24,6 @@ public class TeamController : ControllerBase
         return Ok(newTeam);
     }
 
-    
-    
 
     [HttpGet("{id}")]
     public async Task<ActionResult<bool>> GetById(int id)
@@ -42,9 +38,6 @@ public class TeamController : ControllerBase
         return Ok(team);
     }
 
-    
-    
-    
 
     [HttpGet]
     public async Task<ActionResult<List<Team>>> Index()
@@ -53,9 +46,15 @@ public class TeamController : ControllerBase
         return Ok(teams);
     }
 
-    
-    
-    
+
+    [HttpGet("order")]
+    public async Task<ActionResult<List<Team>>> IndexOrder()
+    {
+        var teams = await _teamRepository.OrderTeam();
+        return Ok(teams);
+    }
+
+
     [HttpPut("{id}")]
     public async Task<ActionResult<Team>> Update(int id, [FromBody] Team team)
     {
@@ -69,9 +68,7 @@ public class TeamController : ControllerBase
         return Ok(teamUpdate);
     }
 
-    
-    
-    
+
     [HttpDelete("{id}")]
     public async Task<ActionResult<Team>> Delete(int id)
     {
@@ -86,7 +83,6 @@ public class TeamController : ControllerBase
     }
 
 
-
     [HttpGet("search")]
     public async Task<ActionResult<Team>> TeamName([FromQuery] string team)
     {
@@ -95,6 +91,7 @@ public class TeamController : ControllerBase
         {
             return NotFound($"{{ \"message\": \"Time não encontrado\" }}");
         }
+
         return Ok(teamName);
     }
 }

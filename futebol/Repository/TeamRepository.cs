@@ -39,6 +39,11 @@ public class TeamRepository
     }
 
     
+    public async Task<List<Team>> OrderTeam()
+    {
+        var teams = _dataContext.team.OrderBy(p => p.TeamName).ToList();
+        return teams;
+    }
     
     public async Task<Team> UpdateTeam(int id, Team team)
     {
@@ -64,4 +69,5 @@ public class TeamRepository
         var existingTeam = await _dataContext.team.FirstOrDefaultAsync(t => t.TeamName == team);
         return existingTeam;
     }
+    
 }
