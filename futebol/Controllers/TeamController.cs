@@ -1,5 +1,6 @@
 using futebol.Entities;
 using futebol.Repository;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace futebol.Controllers;
@@ -15,6 +16,9 @@ public class TeamController : ControllerBase
         this._teamRepository = teamRepository;
     }
 
+    
+    
+    
     [HttpPost]
     public async Task<ActionResult<Team>> Create([FromBody] Team team)
     {
@@ -22,6 +26,8 @@ public class TeamController : ControllerBase
         return Ok(newTeam);
     }
 
+    
+    
 
     [HttpGet("{id}")]
     public async Task<ActionResult<bool>> GetById(int id)
@@ -36,14 +42,20 @@ public class TeamController : ControllerBase
         return Ok(team);
     }
 
+    
+    
+    
 
     [HttpGet]
     public async Task<ActionResult<List<Team>>> Index()
     {
-        var team = await _teamRepository.FindAll();
-        return Ok(team);
+        var teams = await _teamRepository.FindAll();
+        return Ok(teams);
     }
 
+    
+    
+    
     [HttpPut("{id}")]
     public async Task<ActionResult<Team>> Update(int id, [FromBody] Team team)
     {
@@ -57,6 +69,9 @@ public class TeamController : ControllerBase
         return Ok(teamUpdate);
     }
 
+    
+    
+    
     [HttpDelete("{id}")]
     public async Task<ActionResult<Team>> Delete(int id)
     {
@@ -68,5 +83,18 @@ public class TeamController : ControllerBase
 
         var deleteTeam = await _teamRepository.DeleteTeam(id);
         return Ok($"{{ \"message\": \"Team deleted\" }}");
+    }
+
+
+
+    [HttpGet("search")]
+    public async Task<ActionResult<Team>> TeamName([FromQuery] string team)
+    {
+        var teamName = await _teamRepository.FindTeam(team);
+        if (teamName == null)
+        {
+            return NotFound($"{{ \"message\": \"Time não encontrado\" }}");
+        }
+        return Ok(teamName);
     }
 }
