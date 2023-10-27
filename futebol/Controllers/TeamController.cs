@@ -52,7 +52,21 @@ public class TeamController : ControllerBase
         {
             return NotFound($"{{ \"message\": \"Time não encontrado\" }}");
         }
+
         var teamUpdate = await _teamRepository.UpdateTeam(id, team);
         return Ok(teamUpdate);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<Team>> Delete(int id)
+    {
+        var teamId = await _teamRepository.Details(id);
+        if (teamId == null)
+        {
+            return NotFound($"{{ \"message\": \"Time não encontrado\" }}");
+        }
+
+        var deleteTeam = await _teamRepository.DeleteTeam(id);
+        return Ok($"{{ \"message\": \"Team deleted\" }}");
     }
 }
